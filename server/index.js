@@ -1,18 +1,40 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+// import { StaticRouter } from 'react-router';
 import express from 'express';
 import App from '../client/components/App';
 
+import path from 'path';
+import fs from 'fs';
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+// app.get('/', (req, res) => {
+//     const app = ReactDOMServer.renderToString(<App />);
+//     const indexFile = path.resolve('./build/index.html');
+  
+//     fs.readFile(indexFile, 'utf8', (err, data) => {
+//       if (err) {
+//         console.error('Something went wrong:', err);
+//         return res.status(500).send('Oops, better luck next time!');
+//       }
+  
+//       return res.send(
+//         data.replace('<div id="root"></div>', `<div id="root">${app}</div>`)
+//       );
+//     });
+// });
+
+// app.use(express.static('./build'));
 
 app.get('/', (req, res) => {
-    const jsx  = ReactDOMServer.renderToString(
+    const app  = ReactDOMServer.renderToString(
         <App />
     );
-
-    const clientBundleScript = `<script src="http://localhost:8080/scripts/bundle.js"></script>`;
+    
     const clientBundleStyle = `<link rel="stylesheet" href="http://localhost:8080/styles/bundle.css">`;
+    const clientBundleScript = `<script src="http://localhost:8080/scripts/bundle.js"></script>`;
 
     res.send(`
         <!DOCTYPE html>
@@ -24,7 +46,7 @@ app.get('/', (req, res) => {
                 ${clientBundleStyle}
             </head>
             <body>
-                <div id='ssr-app'>${jsx}</div>
+                <div id='ssr-app'>${app}</div>
                 ${clientBundleScript}
             </body>
         </html>

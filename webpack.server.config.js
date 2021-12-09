@@ -17,7 +17,7 @@ let config = {
 
     module: {
         rules: [{
-            test: /\.less$/,
+            test: /\.s[ac]ss$/,
             use: [
                 {
                     loader: 'css-loader',
@@ -29,6 +29,7 @@ let config = {
                         },
                     }
                 },
+                'sass-loader'
             ]
         }],
     },

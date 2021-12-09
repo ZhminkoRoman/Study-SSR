@@ -24,7 +24,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.less$/,
+        test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -36,7 +36,15 @@ const config = {
               },
             },
           },
-          'less-loader',
+          {
+            loader: "sass-loader",
+            options: {
+              implementation: require("sass"),
+              sassOptions: {
+                fiber: false,
+              },
+            },
+          },
         ],
       }
     ],
