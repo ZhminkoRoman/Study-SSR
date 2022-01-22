@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter as Router } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
 import express from 'express';
 import App from '../client/app';
 
@@ -14,12 +14,12 @@ const port = process.env.PORT || 3000;
 
 const HTML = (req, context) => {
 	const body = renderToString(
-		<Router location={req.url} context={context}>
+		<StaticRouter location={req.url} context={context}>
 			<App/>
-		</Router>
+		</StaticRouter>
 	);
 
-	const clientBundleStyle = `<link rel="stylesheet" href="http://localhost:8080/styles/bundle.css">`;
+	const clientBundleStyle = `<link rel="stylesheet" src="http://localhost:8080/styles/bundle.css">`;
 	const clientBundleScript = `<script src="http://localhost:8080/scripts/bundle.js"></script>`;
 
 	return (`
@@ -48,14 +48,10 @@ app.get('*', (req, res) => {
 });
 
 Routes.forEach(route => {
-	console.log('6', route);
 	app.get(route.url, (req, res) => {
-		console.log('7', req, res);
 		return res.send(HTML(req, context));
 	});
 });
-
-console.log('8');
 
 app.listen(port, () => {
 	console.log(`App listening on http://localhost:${port}`);

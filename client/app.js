@@ -1,19 +1,21 @@
-import React, { Component, Fragment } from "react";
-import { Switch, Route } from "react-router-dom";
-import Routes from "../src/routes";
-import Header from "./components/header/header";
+import React, { Component } from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from './pages/Home';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
 
 export default class App extends Component {
   render() {
     return (
-      <Fragment>
+      <>
         <Header />
-        <Switch>
-          {Routes.map((c, index) => (
-            <Route key={index} path={c.url} exact component={c.component} />
-          ))}
-        </Switch>
-      </Fragment>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </>
     );
   }
 }
