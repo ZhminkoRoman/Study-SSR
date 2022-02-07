@@ -17,18 +17,9 @@ let config = {
 
     module: {
         rules: [{
-            test: /\.s[ac]ss$/,
+            test: /\.s[ac]ss$/i,
             use: [
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: {
-                            exportOnlyLocals: true,
-                            exportLocalsConvention: 'camelCase',
-                            localIdentName: '[local]_[hash:base64:5]'
-                        },
-                    }
-                },
+                'css-loader',
                 'sass-loader'
             ]
         }],

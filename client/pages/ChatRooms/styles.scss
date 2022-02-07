@@ -1,0 +1,90 @@
+.chatrooms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chatrooms_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  width: 40%;
+}
+
+.chatrooms_rooms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 60vw;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 1px solid #757575;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.chatrooms_room {
+  align-self: center;
+  width: 14vw;
+  min-height: 40px;
+  padding: 10px 20px;
+  margin: 5px;
+  text-align: center;
+  font-size: 1em;
+  line-height: 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.chatrooms_link {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+  background-color: #facb4b;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #fa9f4b;
+  }
+}
+
+.chatrooms_input {
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 20px;
+  border: 2px solid #facb4b;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  outline: none;
+
+  &:hover {
+    cursor: text;
+  }
+
+  &:focus {
+    border-color: #fa9f4b;
+  }
+}
+
+.chatrooms_message {
+  padding: 10px 0;
+}

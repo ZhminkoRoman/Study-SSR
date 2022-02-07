@@ -1,0 +1,21 @@
+.title {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.title_first-word {
+  font-size: 44px;
+  line-height: 50px;
+  color: #ffffff;
+  text-shadow: 2px 0px 0 #facb4b,
+    -2px 0px 0 #facb4b,
+    0px 2px 0 #facb4b,
+    0px -2px 0 #facb4b;
+}
+
+.title_second-word {
+  font-size: 44px;
+  line-height: 50px;
+  color: #facb4b;
+}

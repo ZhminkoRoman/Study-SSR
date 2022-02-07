@@ -2,19 +2,21 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin');
 const sharedConfig = require('./webpack.shared.config.js');
-
-const clientPort = 8080;
+require('babel-polyfill');
+const clientPort = 3001;
 
 const config = {
   target: 'web',
 
-  entry: './client/index.js',
+  entry: ['babel-polyfill', './client/index.js'],
 
   output: {
     path: path.join(__dirname, './build/client'),
     filename: 'scripts/bundle.js',
     publicPath: `http://localhost:${clientPort}/`,
   },
+
+  devtool: "source-map",
 
   devServer: {
     port: clientPort,
@@ -30,18 +32,15 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              modules: {
-                exportLocalsConvention: 'camelCase',
-                localIdentName: '[local]_[hash:base64:5]',
-              },
+              sourceMap: true,
             },
           },
           {
             loader: "sass-loader",
             options: {
-              implementation: require("sass"),
+              sourceMap: true,
               sassOptions: {
-                fiber: false,
+                outputStyle: "compressed",
               },
             },
           },
