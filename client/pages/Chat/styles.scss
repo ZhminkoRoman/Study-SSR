@@ -6,6 +6,8 @@
 }
 
 .chat_wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
   background-color: #fff;
   width: 80vw;
   height: 80vh;
@@ -33,6 +35,21 @@
 .chat_others {
   align-self: flex-end;
   background-color: #fa734b;
+}
+
+.chat-footer_input {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: 1px solid #757575;
+  border-radius: 5px;
+}
+
+.chat-footer_button {
+  padding: 8px 12px;
+  background-color: #facb4b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
 }
 
 .message_author-holder,

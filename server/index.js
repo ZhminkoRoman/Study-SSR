@@ -91,8 +91,6 @@ io.on('connection', (socket) => {
 			return error;
 		}
 		// const users = getAllUsers();
-		const rooms = getRooms();
-		io.emit('take-rooms', rooms);
 	});
 
   socket.on('join-room', ({ name, room }) => {
@@ -119,6 +117,8 @@ io.on('connection', (socket) => {
 
 	socket.on('create-room', ({ name, room }) => {
 		addRoom({ id: socket.id, name, room });
+		const rooms = getRooms();
+		io.emit('take-rooms', rooms);
 	})
 
 	socket.on('get-rooms', () => {

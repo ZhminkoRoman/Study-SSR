@@ -88,6 +88,7 @@ function Chat() {
       <div className="chat-footer">
         <input
           type="text"
+          className='chat-footer_input'
           placeholder="Hey..."
           value={currentMessage}
           onChange={(event) => {
@@ -97,7 +98,7 @@ function Chat() {
             event.key === 'Enter' && sendMessage();
           }}
         />
-        <button onClick={sendMessage}>&#9658;</button>
+        <button className='chat-footer_button' onClick={sendMessage}>&#9658;</button>
       </div>
     </div>
   );
