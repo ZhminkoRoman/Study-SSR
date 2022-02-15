@@ -2,6 +2,7 @@
   "name": "minimal-reactjs-boilerplate",
   "version": "1.0.0",
   "description": "Create React app without CLI",
+  "private": false,
   "main": "index.js",
   "author": "Raman Zhminko",
   "license": "ISC",
