@@ -18,6 +18,7 @@ export default function ChatRooms () {
   }, [location.search]);
 
   useEffect(() => {
+    socket.emit('get-rooms');
     socket.on('take-rooms', (rooms) => {
       setRooms(rooms);
     })

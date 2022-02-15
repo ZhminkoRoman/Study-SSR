@@ -119,6 +119,9 @@ io.on('connection', (socket) => {
 
 	socket.on('create-room', ({ name, room }) => {
 		addRoom({ id: socket.id, name, room });
+	})
+
+	socket.on('get-rooms', () => {
 		const rooms = getRooms();
 		io.emit('take-rooms', rooms);
 	})
